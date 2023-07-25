@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Books>
+<h2>Books</h2>
+<table class="table">
+
+    <tr>
+        <th>ID</th>
+        <th>Genres</th>
+        <th>Title</th>
+        <th> Description</th>
+        <th>Author</th>
+        <th>Pages</th>
+    </tr>
+   
+    @foreach (var book in Model)
+{
+            <tr>
+                <td>@book.ID</td>
+                <td>@book.GenresID</td>
+                <td>@book.Title</td>
+                <td>@book.Description</td>
+                <td>@book.Author</td>
+                <td>@book.Pages</td>
+
+
+
+
+            </tr>
+}
+
+
+
+</table>

@@ -1,8 +1,20 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Favorite_Books.Models;
+using MySql.Data.MySqlClient;
+using System.Data;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddScoped<IDbConnection>((s) =>
+{
+    IDbConnection conn = new MySqlConnection(builder.Configuration.GetConnectionString("favorite_books"));
+    conn.Open();
+    return conn;
+});
+
+builder.Services.AddTransient<IBooksRepository, BooksRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
