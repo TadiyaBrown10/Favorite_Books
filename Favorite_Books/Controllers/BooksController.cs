@@ -29,6 +29,24 @@ namespace Favorite_Books.Controllers
             var books = repo.GetBooks(ID);
             return View(books);
         }
+
+        //public IActionResult UpdateBooks(int ID)
+        //{
+           // Books books = repo.UpdateBooks(ID);
+
+           // if (books = null)
+           // {
+             //   return View("BookNotFound");
+            //}
+            //return View(books);
+        //}
+
+        public IActionResult UpdateBooksToDatabase(Books books)
+        {
+            repo.UpdateBooks(books);
+
+            return RedirectToAction("ViewBooks", new { id = books.ID });
+        }
     }
 }
 
