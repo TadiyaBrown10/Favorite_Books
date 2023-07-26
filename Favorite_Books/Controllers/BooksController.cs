@@ -30,16 +30,19 @@ namespace Favorite_Books.Controllers
             return View(books);
         }
 
-        //public IActionResult UpdateBooks(int ID)
-        //{
-           // Books books = repo.UpdateBooks(ID);
+        public IActionResult UpdateBooks(int ID)
+        {
+            Books book = repo.GetBooks(ID);
 
-           // if (books = null)
-           // {
-             //   return View("BookNotFound");
-            //}
-            //return View(books);
-        //}
+            if (book == null)
+            {
+                return View("ProductNotFound");
+            }
+
+            return View(book);
+        }
+        
+        
 
         public IActionResult UpdateBooksToDatabase(Books books)
         {
