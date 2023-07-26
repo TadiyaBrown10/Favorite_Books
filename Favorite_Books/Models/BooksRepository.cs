@@ -17,6 +17,11 @@ namespace Favorite_Books.Models
         {
             return _conn.Query<Books>("SELECT * FROM Books;");
         }
+
+        public Books GetBooks(int ID)
+        {
+            return _conn.QuerySingle<Books>("SELECT * FROM BOOKS WHERE ID = @id", new { id = ID });
+        }
     }
 }
 

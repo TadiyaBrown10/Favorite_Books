@@ -23,6 +23,12 @@ namespace Favorite_Books.Controllers
             var books = repo.GetALLBooks();
             return View(books);
         }
+
+        public IActionResult ViewBooks(int ID)
+        {
+            var books = repo.GetBooks(ID);
+            return View(books);
+        }
     }
 }
 

@@ -14,7 +14,7 @@
     @foreach (var book in Model)
 {
             <tr>
-                <td>@book.ID</td>
+                <td><a href=/Books/ViewBooks/@book.ID>@book.ID</a></td>
                 <td>@book.GenresID</td>
                 <td>@book.Title</td>
                 <td>@book.Description</td>

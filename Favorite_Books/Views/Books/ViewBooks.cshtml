@@ -1,0 +1,22 @@
+﻿@model Books
+
+<h3>@Model.Title </h3>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>GenresID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Author</th>
+        <th>Pages</th>
+    </tr>
+    <tr>
+        <td>@Model.ID</td>
+        <td>@Model.GenresID</td>
+        <td>@Model.Title</td>
+        <td>@Model.Description</td>
+        <td>@Model.Author</td>
+        <td>@Model.Pages</td>
+    </tr>
+</table>
