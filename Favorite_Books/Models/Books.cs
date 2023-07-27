@@ -13,6 +13,7 @@ namespace Favorite_Books.Models
 		public string Description {get; set;}
 		public string Author { get; set; }
 		public int Pages { get; set; }
+		public IEnumerable<Genres> GenreType { get; set; }
 
         
     }

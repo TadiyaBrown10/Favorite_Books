@@ -50,6 +50,25 @@ namespace Favorite_Books.Controllers
 
             return RedirectToAction("ViewBooks", new { id = books.ID });
         }
+
+        public IActionResult InsertBook()
+        {
+            var book = repo.AssignGenre();
+            return View(book);
+        }
+
+
+        public IActionResult InsertBookToDatabase(Books bookToInsert)
+        {
+            repo.InsertBook(bookToInsert);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DeleteBook(Books books)
+        {
+            repo.DeleteBook(books);
+            return RedirectToAction("Index");
+        }
     }
 }
 
