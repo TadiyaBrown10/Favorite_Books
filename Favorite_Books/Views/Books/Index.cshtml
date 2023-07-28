@@ -1,5 +1,10 @@
 ﻿@model IEnumerable<Books>
-<h2>Books</h2>
+
+<h2>Favorite Books</h2>
+
+<h6> Genre Types #: 1-Romance  2-Mystery  3-Fiction  4-Comics  5-Biography</h6>
+
+
 
 <div style="display: block">
     <a href="/Books/InsertBook/">Create a New Book</a>
@@ -15,25 +20,24 @@
         <th>Author</th>
         <th>Pages</th>
     </tr>
-   
+
     @foreach (var book in Model)
-{
-            <tr>
-                <td><a href=/Books/ViewBooks/@book.ID>@book.ID</a></td>
-                <td>@book.GenresID</td>
-                <td>@book.Title</td>
-                <td>@book.Description</td>
-                <td>@book.Author</td>
-                <td>@book.Pages</td>
+    {
+        <tr>
+            <td><a href=/Books/ViewBooks/@book.ID>@book.ID</a></td>
+            <td>@book.GenresID</td>
+            <td>@book.Title</td>
+            <td>@book.Description</td>
+            <td>@book.Author</td>
+            <td>@book.Pages</td>
 
 
 
 
-            </tr>
-}
+        </tr>
+    }
 
-
+    
 
 </table>
-
 

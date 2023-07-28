@@ -25,7 +25,7 @@ namespace Favorite_Books.Models
         public void DeleteBook(Books books)
         {
             _conn.Execute("DELETE FROM BOOKS WHERE ID = @id;", new { id = books.ID });
-            _conn.Execute("DELETE FROM GENRES ID = @id;", new { id = books.ID });
+            _conn.Execute("DELETE FROM GENRES WHERE GenresID = @id;", new { id = books.ID });
         }
 
         public IEnumerable<Books> GetALLBooks()
@@ -45,14 +45,13 @@ namespace Favorite_Books.Models
 
         public void InsertBook(Books bookToInsert)
         {
-            _conn.Execute("INSERT INTO Books ( GENREID, TITLE, DESCRIPTION, AUTHOR, PAGES) VALUES (@genreid, @title, @description, @author, @pages);",
-                new { genres = bookToInsert.GenresID, title = bookToInsert.Title, description = bookToInsert.Description, author = bookToInsert.Author, pages = bookToInsert.Pages });
+            _conn.Execute("INSERT INTO Books ( GenresID, TITLE, DESCRIPTION, AUTHOR, PAGES) VALUES (@genresid, @title, @description, @author, @pages);",
+                new { genresid = bookToInsert.GenresID, title = bookToInsert.Title, description = bookToInsert.Description, author = bookToInsert.Author, pages = bookToInsert.Pages });
         }
 
         public void UpdateBooks(Books books)
         {
-            _conn.Execute("UPDATE Books SET  GenresID = @GenresID, Title = @Title, Description = @Desrciption, Author = @Author, Pages = @Pages" +
-                " WHERE ID = @ID",
+            _conn.Execute("UPDATE Books SET  GenresID = @genresID, Title = @title, Description = @description, Author = @author, Pages = @pages WHERE ID = @id;",
                new { id = books.ID, genresId= books.GenresID, title = books.Title, description = books.Description, author = books.Author, pages = books.Pages });
         }
     }
